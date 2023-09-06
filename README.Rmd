@@ -41,18 +41,36 @@ At meeting:
 
 ## Step 0. Do it with base ggplot2 (can become problem statement later)
 
-```{r}
+```{r use_base_ggplot2}
+prize_wheel <- data.frame(probs = c(.7, .2, .1), payout = c(0, 1, 5))
+
+library(ggplot2)
+ggplot(prize_wheel) + 
+  aes(x = payout, y = probs) + 
+  geom_point() + 
+  aes(xend = payout, yend = 0) + 
+  geom_segment()
+
 ```
 
-## Step 1. Write calc group function and test
+## Step 1. Write compute group function and test
 
-```{r}
+reference: https://evamaerey.github.io/mytidytuesday/2022-01-03-easy-geom-recipes/easy_geom_recipes.html
+
+```{r compute_group}
+
+
 ```
 
+
+```{r test_compute_group}
+
+
+```
 
 ## Step 2. Pass to ggproto object
 
-```{r}
+```{r ggproto}
 
 
 ```
