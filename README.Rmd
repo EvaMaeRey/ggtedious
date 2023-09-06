@@ -1,0 +1,110 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+# ggtedious
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+Quoting the testthat package: 
+
+> 'Testing your code can be painful and tedious, but it greatly increases the quality of your code. testthat tries to make testing as fun as possible, so that you get a visceral satisfaction from writing tests. Testing should be addictive, so you do it all the time.' 
+
+I still feel like it's essentially not fun, but maybe in good company it can be better. 
+
+Building a simple, straightforward extension provide a fun occasion to build out testing muscles. 
+
+geom_post and geom_lollipop might work well. After building those functions, we can add tests, error messages, etc.  
+
+
+Meeting objectives:
+
+0. My prestep: Figure out what best practices for ggplot2 extension packages are; figure out some experts to ask for help.
+
+At meeting:
+
+1. Write ggplot2 extension functions geom_post() geom_lollipop().
+2. Put them in a package using best practices.
+3. meet like minded stats educators!
+
+# Part 1. Work on functionality
+
+## Step 0. Do it with base ggplot2 (can become problem statement later)
+
+```{r}
+```
+
+## Step 1. Write calc group function and test
+
+```{r}
+```
+
+
+## Step 2. Pass to ggproto object
+
+```{r}
+
+
+```
+
+## Step 3. Write geom_*() functions
+
+```{r geom_post}
+
+
+```
+
+```{r geom_lollipop}
+
+
+```
+
+## Step 4. Test it out enjoy! (possibly basis of examples and tests)
+
+```{r}
+
+
+```
+
+## Step 5. Formalize tests, write messages.
+
+```{r test_multiplication}
+testthat::test_that("multiplication works", {
+  testthat::expect_equal(2*2, 4)
+})
+```
+
+# Part 2.  Build out package
+
+## 1. devtools::create
+
+## 2. Send functions to .R folder and Tests to test_that folder (or copy and paste).
+
+```{r, eval = F}
+library(readme2pkg)
+chunk_to_r("geom_lollipop")
+chunk_to_tests_testthat("test1")
+```
+
+
+## 3. devtools::check
+
+## 4. Install and restart
+
+## Done! 
+
+# Appendix. list of code chunks in this doc.
+
+```{r}
+knitr::knit_code$get() |> names()
+```
