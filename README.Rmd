@@ -134,7 +134,7 @@ https://evamaerey.github.io/package_in_20_minutes/package_in_20_minutes
 
 ## Step B. Send code to .R folder and test_that folder, we'll use {readme2pkg}.
 
-Functions send code to proper folders for packaging.  
+Functions send code to proper folders for packaging; but let them live here first.  Another valid alternative is copy and paste.
 
 ```{r, eval = F}
 library(readme2pkg)

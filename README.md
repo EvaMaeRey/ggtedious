@@ -121,7 +121,7 @@ geom_lollipop <- function(...){
 testthat::test_that("multiplication works", {
   testthat::expect_equal(2*2, 4)
 })
-#> Test passed 🌈
+#> Test passed 🎊
 ```
 
 # Part 2. Build out package file structure, files
@@ -132,7 +132,8 @@ testthat::test_that("multiplication works", {
 
 ## Step B. Send code to .R folder and test\_that folder, we’ll use {readme2pkg}.
 
-Functions send code to proper folders for packaging.
+Functions send code to proper folders for packaging; but let them live
+here first. Another valid alternative is copy and paste.
 
 ``` r
 library(readme2pkg)
