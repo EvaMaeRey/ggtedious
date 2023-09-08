@@ -1,7 +1,6 @@
 
   - [Welcome to the ggtedious
     workshop\!](#welcome-to-the-ggtedious-workshop)
-  - [Meeting objectives:](#meeting-objectives)
   - [Part 1. Work on functionality](#part-1-work-on-functionality)
       - [Step 0. Do it with base ggplot2 (can become problem statement
         later)](#step-0-do-it-with-base-ggplot2-can-become-problem-statement-later)
@@ -18,7 +17,8 @@
         messages.](#step-5-formalize-tests-write-messages)
   - [Part 2. Build out package file structure,
     files](#part-2-build-out-package-file-structure-files)
-      - [Step A. devtools::create,](#step-a-devtoolscreate)
+      - [Step A. devtools::create and
+        documentation](#step-a-devtoolscreate-and-documentation)
       - [Step B. Send code to .R folder and test\_that folder, we’ll use
         {readme2pkg}.](#step-b-send-code-to-r-folder-and-test_that-folder-well-use-readme2pkg)
       - [Step C. devtools::check](#step-c-devtoolscheck)
@@ -36,8 +36,7 @@
 <!-- badges: end -->
 
 Let’s build a cool ggplot2 extension function. And then let’s put it in
-a package. And let’s do it right\! Some of it may be tedious.
-<https://angeladuckworth.com/grit-scale/>
+a package. And let’s do it right\! It may require grit.
 
 > ‘Testing your code can be painful and tedious, but it greatly
 > increases the quality of your code. testthat tries to make testing as
@@ -49,7 +48,9 @@ Building a simple, straightforward extension in good company
 (workshop\!) will provide a misery-loves-company occasion to build a
 correct package and strengthen testing muscles.
 
-# Meeting objectives:
+<https://angeladuckworth.com/grit-scale/>
+
+Meeting objectives:
 
 <!-- 0. My pre-step: Figure out what best practices for ggplot2 extension packages and testing are; and/or figure out some experts to ask for help. -->
 
@@ -121,14 +122,27 @@ geom_lollipop <- function(...){
 testthat::test_that("multiplication works", {
   testthat::expect_equal(2*2, 4)
 })
-#> Test passed 🎊
+#> Test passed 😀
 ```
 
 # Part 2. Build out package file structure, files
 
-## Step A. devtools::create,
+## Step A. devtools::create and documentation
 
 <https://evamaerey.github.io/package_in_20_minutes/package_in_20_minutes>
+
+  - Step A.0: Already complete for workshop purposes: Create a readme
+    file with usethis::use\_readme\_rmd()
+  - Step A.1: Create package architecture using
+    usethis::create\_package(“../ggtedious”)
+  - Step A.2: Describe what the package does in the DESCRIPTION file
+  - Step A.3: Create a license using usethis::use\_\*\_license()
+  - Step A.6: Add needed dependencies
+  - Step A.6a. Declare dependencies using
+    usethis::use\_package(“package\_name”)
+  - Step A.6b: Add dependencies and export functions in R script using
+    “\#’ @importFrom and \#’ @export”
+  - Step A.7: Document functions using ‘Roxygen’ skeleton
 
 ## Step B. Send code to .R folder and test\_that folder, we’ll use {readme2pkg}.
 
@@ -142,6 +156,14 @@ chunk_to_tests_testthat("test1")
 ```
 
 ## Step C. devtools::check
+
+  - Step C.4: Make the package “active” and test your functions
+    interactively with devtools::load\_all()
+  - Step C.8: Incorporate documentation additions into package using
+    devtools::document()
+  - Step C.5: Run a check on the new package using devtools::check()
+  - Step C.10: Create some relevant tests with usethis::use\_test()
+  - Step C.12: Build and install package using devtools::build()
 
 ## Step D. Install and restart
 
