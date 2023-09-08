@@ -1,5 +1,7 @@
 ---
-output: github_document
+output: 
+  github_document:
+    toc: TRUE
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
@@ -11,31 +13,25 @@ knitr::opts_chunk$set(
 )
 ```
 
-# ggtedious
+# Welcome to the ggtedious workshop!
 
 <!-- badges: start -->
 <!-- badges: end -->
 
-Quoting the testthat package: 
+Let's build a cool ggplot2 extension function.  And then let's put it in a package. And let's do it right!  Some of it may be tedious.  https://angeladuckworth.com/grit-scale/
 
-> 'Testing your code can be painful and tedious, but it greatly increases the quality of your code. testthat tries to make testing as fun as possible, so that you get a visceral satisfaction from writing tests. Testing should be addictive, so you do it all the time.' 
+> 'Testing your code can be painful and tedious, but it greatly increases the quality of your code. testthat tries to make testing as fun as possible, so that you get a visceral satisfaction from writing tests. Testing should be addictive, so you do it all the time.'  - testthat introduction (probably Hadley Wickham)
 
-I still feel like it's essentially not fun, but maybe in good company it can be better. 
+Building a simple, straightforward extension in good company (workshop!) will provide a misery-loves-company occasion to build a correct package and strengthen testing muscles. 
 
-Building a simple, straightforward extension provide a fun occasion to build out testing muscles. 
+# Meeting objectives:
 
-geom_post and geom_lollipop might work well. After building those functions, we can add tests, error messages, etc.  
+<!-- 0. My pre-step: Figure out what best practices for ggplot2 extension packages and testing are; and/or figure out some experts to ask for help. -->
 
 
-Meeting objectives:
-
-0. My prestep: Figure out what best practices for ggplot2 extension packages are; figure out some experts to ask for help.
-
-At meeting:
-
-1. Write ggplot2 extension functions geom_post() geom_lollipop().
-2. Put them in a package using best practices.
-3. meet like minded stats educators!
+1. Practice a `compute_group` easy geom extension by creating geom_post(); also bonus geom_lollipop().
+2. Put them in a package using best practices - practice best practices
+3. Meet like minded stats educators, ggplot2 extenders, and package developers. 
 
 # Part 1. Work on functionality
 
@@ -50,8 +46,23 @@ ggplot(prize_wheel) +
   geom_point() + 
   aes(xend = payout, yend = 0) + 
   geom_segment()
-
 ```
+
+And like-to-have code:
+
+```{r, eval = F}
+# would show just line
+ggplot(prize_wheel) + 
+  aes(x = payout, y = probs) + 
+  geom_post()
+
+# line and dot
+ggplot(prize_wheel) + 
+  aes(x = payout, y = probs) + 
+  geom_point() + 
+  geom_lollipop()
+```
+
 
 ## Step 1. Write compute group function and test
 
@@ -63,7 +74,8 @@ reference: https://evamaerey.github.io/mytidytuesday/2022-01-03-easy-geom-recipe
 ```
 
 
-```{r test_compute_group}
+
+```{r try_compute_group}
 
 
 ```
@@ -75,14 +87,24 @@ reference: https://evamaerey.github.io/mytidytuesday/2022-01-03-easy-geom-recipe
 
 ```
 
-## Step 3. Write geom_*() functions
+## Step 3. Write geom_post() functions
 
 ```{r geom_post}
 
 
 ```
 
+## Step 3.1 Bonus, write geom_lollipop with list mechanism
+
 ```{r geom_lollipop}
+geom_lollipop <- function(...){
+
+  list(  
+  geom_post(...),
+  geom_point(...)
+  )
+  
+}
 
 
 ```
@@ -102,24 +124,29 @@ testthat::test_that("multiplication works", {
 })
 ```
 
-# Part 2.  Build out package
+# Part 2.  Build out package file structure, files
 
-## 1. devtools::create
+## Step A. devtools::create, 
 
-## 2. Send functions to .R folder and Tests to test_that folder (or copy and paste).
+https://evamaerey.github.io/package_in_20_minutes/package_in_20_minutes
+
+
+
+## Step B. Send code to .R folder and test_that folder, we'll use {readme2pkg}.
+
+Functions send code to proper folders for packaging.  
 
 ```{r, eval = F}
 library(readme2pkg)
-chunk_to_r("geom_lollipop")
+chunk_to_r(c("geom_post", "geom_lollipop"))
 chunk_to_tests_testthat("test1")
 ```
 
+## Step C. devtools::check
 
-## 3. devtools::check
+## Step D. Install and restart
 
-## 4. Install and restart
-
-## Done! 
+# Done! 
 
 # Appendix. list of code chunks in this doc.
 
