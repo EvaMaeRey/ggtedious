@@ -62,7 +62,9 @@ Meeting objectives:
 
 Prerequisite:
 
+Having written a ‘compute group’ geom extension. See:
 <https://evamaerey.github.io/mytidytuesday/2022-01-03-easy-geom-recipes/easy_geom_recipes.html>
+Seasoned R/ggplot2 users mostly spent \~ 15 minutes on each recipe.
 
 # Part 1. Work on functionality
 
@@ -126,7 +128,7 @@ geom_lollipop <- function(...){
 testthat::test_that("multiplication works", {
   testthat::expect_equal(2*2, 4)
 })
-#> Test passed 😀
+#> Test passed 🎉
 ```
 
 # Part 2. Build out package file structure, files
