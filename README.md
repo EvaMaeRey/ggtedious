@@ -56,9 +56,13 @@ Meeting objectives:
 
 1.  Practice a `compute_group` easy geom extension by creating
     geom\_post(); also bonus geom\_lollipop().
-2.  Put them in a package using best practices - practice best practices
+2.  Put them in a package using best practices
 3.  Meet like minded stats educators, ggplot2 extenders, and package
     developers.
+
+Prerequisite:
+
+<https://evamaerey.github.io/mytidytuesday/2022-01-03-easy-geom-recipes/easy_geom_recipes.html>
 
 # Part 1. Work on functionality
 
