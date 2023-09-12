@@ -42,10 +42,8 @@ a package. And let’s do it right\! It may require grit to endure the
 tedium.
 
 > ‘Testing your code can be painful and tedious, but it greatly
-> increases the quality of your code. testthat tries to make testing as
-> fun as possible, so that you get a visceral satisfaction from writing
-> tests. Testing should be addictive, so you do it all the time.’ -
-> testthat introduction (probably Hadley Wickham)
+> increases the quality of your code.’ - testthat introduction (probably
+> Hadley Wickham)
 
 Building a simple, straightforward extension in good company
 (workshop\!) will provide a misery-loves-company occasion to build a
@@ -131,7 +129,7 @@ geom_lollipop <- function(...){
 testthat::test_that("multiplication works", {
   testthat::expect_equal(2*2, 4)
 })
-#> Test passed 🎉
+#> Test passed 😸
 ```
 
 # Part 2. Build out package file structure, files
