@@ -1,0 +1,74 @@
+---
+title: "RUGS application for 'ggtedious'"
+author: "Evangeline Reynolds"
+date: "9/12/2023"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Dear RUGS committee members,
+
+The following is a proposal for $750 for a RUGS sponsored workshop: 'ggtedious'.  The objective is to work on package building skills including the tedious tasks of writing tests and user facing messages (warnings and error).
+
+We will create a toy ggplot2 extensions, the functions geom_post() and geom_lollipop().  Then we will package these, applying best practices. 
+
+{ggtedious} is meant to complement educational materials on ggplot2 extension that focuses only no building functionality (https://github.com/EvaMaeRey/easy-geom-recipes), and not packaging. Thinking about creating an extension package is a natural next step.
+
+The workshop will use specialized tools from readme2pkg so that the workshop lessons learned can all live in one place (the README.rmd), and also be a viable package. 
+
+# The nature of the project and its goals
+
+New developers may not be motivated to test and write error messages because the rewards aren't as tangible as writing functionality. "Look my test didn't fail" feels magnitudes less exciting that "look at this awesome thing my function accomplishes in one line of code - OMG".  
+
+But the promise of testing is peace of mind and contentment - not excitement.  Even when framed this way, testing and messaging still doesn't sound like much fun.  So, to get going in this space, we propose the {ggtedious} workshop to tie our hands and commit to diving in and to benefit from the misery-loves-company principle; and commit to a <2 hours workshop dedicated to building package in a responsible way.  
+
+The workshop will have in-person and remote contingents.  $150 is requested for a professional Zoom account purchase.
+
+The remaining $600 honorarium funds will divided between 3 consultants.  The first will build some basic functionality (tentatively Andrew Heiss).  The other two will lend their expertise in the business of making the package safe for users beyond the package author; to be determined.
+
+> 'Testing your code can be painful and tedious, but it greatly increases the quality of your code.'  - testthat introduction (probably Hadley Wickham)
+
+# The beginning and end dates for the project
+
+We are working on scheduling the project for mid-October.
+
+# A description of who will benefit from the project
+
+Attendees will benefit from the project.  To keep the workshop intimate, we'll limit attendees to 9 or fewer online participants.  In person locations (unlimited attendees) will be at the University of Denver, US Military Academy  at West Point Department of Mathematics, and elsewhere (possibly Yale Data Science and the University of Georgia). 
+
+Furthermore, ggtedious will live on github as a reference for other new-to-ggplot2 extension folks for reference. 
+
+# A list of detailed activities along with relevant timelines
+
+Part 1. Work on functionality
+
+- Step 0. Do it with base ggplot2 can become problem statement later
+- Step 0.b Write like-to-have code code chunk option eval = F
+- Step 1. Write compute group function and test
+- Step 2. Pass to ggproto object
+- Step 3. Write geom_post() functions
+- Step 3.1 Bonus, write geom_lollipop with list mechanism
+- Step 4. Test it out enjoy! (possibly basis of examples and tests)
+- Step 5. Formalize tests, write messages.
+
+Part 2. Build out package file structure, files
+
+- Step A. devtools::create and documentation
+- Step B. Send code to R folder and test_that folder, we’ll use {readme2pkg}.
+- Step C. devtools::check
+- Step D. Install and restart
+
+
+# Your measure of success for the project
+
+The test coverage and usability of this toy package will be the measure of success.  Creating a reference for future package builders and the workshop participants is also an objective. 
+
+# A detailed financial plan and list of expenses
+
+$750 total
+
+- 1X professional Aoom membership, $150
+- 3X \$200 honerariums, $600 

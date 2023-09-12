@@ -2,8 +2,10 @@
   - [Welcome to the ggtedious
     workshop\!](#welcome-to-the-ggtedious-workshop)
   - [Part 1. Work on functionality](#part-1-work-on-functionality)
-      - [Step 0. Do it with base ggplot2 (can become problem statement
-        later)](#step-0-do-it-with-base-ggplot2-can-become-problem-statement-later)
+      - [Step 0. Do it with base ggplot2 *can become problem statement
+        later*](#step-0-do-it-with-base-ggplot2-can-become-problem-statement-later)
+      - [Step 0.b Write like-to-have code *code chunk option eval =
+        F*](#step-0b-write-like-to-have-code-code-chunk-option-eval--f)
       - [Step 1. Write compute group function and
         test](#step-1-write-compute-group-function-and-test)
       - [Step 2. Pass to ggproto object](#step-2-pass-to-ggproto-object)
@@ -36,7 +38,8 @@
 <!-- badges: end -->
 
 Let’s build a cool ggplot2 extension function. And then let’s put it in
-a package. And let’s do it right\! It may require grit.
+a package. And let’s do it right\! It may require grit to endure the
+tedium.
 
 > ‘Testing your code can be painful and tedious, but it greatly
 > increases the quality of your code. testthat tries to make testing as
@@ -46,7 +49,7 @@ a package. And let’s do it right\! It may require grit.
 
 Building a simple, straightforward extension in good company
 (workshop\!) will provide a misery-loves-company occasion to build a
-correct package and strengthen testing muscles.
+correct package and build/strengthen testing muscles.
 
 <https://angeladuckworth.com/grit-scale/>
 
@@ -57,7 +60,7 @@ Meeting objectives:
 1.  Practice a `compute_group` easy geom extension by creating
     geom\_post(); also bonus geom\_lollipop().
 2.  Put them in a package using best practices
-3.  Meet like minded stats educators, ggplot2 extenders, and package
+3.  Meet like-minded stats educators, ggplot2 extenders, and package
     developers.
 
 Prerequisite:
@@ -68,7 +71,7 @@ Seasoned R/ggplot2 users mostly spent \~ 15 minutes on each recipe.
 
 # Part 1. Work on functionality
 
-## Step 0. Do it with base ggplot2 (can become problem statement later)
+## Step 0. Do it with base ggplot2 *can become problem statement later*
 
 ``` r
 prize_wheel <- data.frame(probs = c(.7, .2, .1), payout = c(0, 1, 5))
@@ -83,7 +86,7 @@ ggplot(prize_wheel) +
 
 ![](README_files/figure-gfm/use_base_ggplot2-1.png)<!-- -->
 
-And like-to-have code:
+## Step 0.b Write like-to-have code *code chunk option eval = F*
 
 ``` r
 # would show just line
@@ -143,17 +146,17 @@ testthat::test_that("multiplication works", {
     usethis::create\_package(“../ggtedious”)
   - Step A.2: Describe what the package does in the DESCRIPTION file
   - Step A.3: Create a license using usethis::use\_\*\_license()
-  - Step A.6: Add needed dependencies
+  - Step A.6: Be explicit about dependency use in functions
   - Step A.6a. Declare dependencies using
-    usethis::use\_package(“package\_name”)
-  - Step A.6b: Add dependencies and export functions in R script using
-    “\#’ @importFrom and \#’ @export”
+    usethis::use\_package(“package\_name”); are added to DESCRIPTION
   - Step A.7: Document functions using ‘Roxygen’ skeleton
 
 ## Step B. Send code to .R folder and test\_that folder, we’ll use {readme2pkg}.
 
 Functions send code to proper folders for packaging; but let them live
-here first. Another valid alternative is copy and paste.
+here first. Another valid alternative is copy and paste. Other package
+building workflows will build the functionality straight away in .R
+files.
 
 ``` r
 library(readme2pkg)
@@ -163,13 +166,13 @@ chunk_to_tests_testthat("test1")
 
 ## Step C. devtools::check
 
-  - Step C.4: Make the package “active” and test your functions
+  - Step C.1: Make the package “active” and test your functions
     interactively with devtools::load\_all()
-  - Step C.8: Incorporate documentation additions into package using
+  - Step C.2: Incorporate documentation additions into package using
     devtools::document()
-  - Step C.5: Run a check on the new package using devtools::check()
-  - Step C.10: Create some relevant tests with usethis::use\_test()
-  - Step C.12: Build and install package using devtools::build()
+  - Step C.3: Run a check on the new package using devtools::check()
+  - Step C.4: Create some relevant tests with usethis::use\_test()
+  - Step C.5: Build and install package using devtools::build()
 
 ## Step D. Install and restart
 
@@ -179,8 +182,8 @@ chunk_to_tests_testthat("test1")
 
 ``` r
 knitr::knit_code$get() |> names()
-#>  [1] "unnamed-chunk-1"     "use_base_ggplot2"    "unnamed-chunk-2"    
-#>  [4] "compute_group"       "try_compute_group"   "ggproto"            
-#>  [7] "geom_post"           "geom_lollipop"       "unnamed-chunk-3"    
-#> [10] "test_multiplication" "unnamed-chunk-4"     "unnamed-chunk-5"
+#>  [1] "unnamed-chunk-1"        "use_base_ggplot2"       "unnamed-chunk-2"       
+#>  [4] "compute_group_post"     "try_compute_group_post" "ggproto"               
+#>  [7] "geom_post"              "geom_lollipop"          "unnamed-chunk-3"       
+#> [10] "test_multiplication"    "unnamed-chunk-4"        "unnamed-chunk-5"
 ```
