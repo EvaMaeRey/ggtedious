@@ -41,8 +41,12 @@
         {readme2pkg}.](#step-b-send-code-to-r-folder-and-test_that-folder-well-use-readme2pkg)
       - [Step C. Load, document, and
         check](#step-c-load-document-and-check)
-      - [Step D. Install and restart](#step-d-install-and-restart)
+      - [Step D. Install and restart, push to
+        github](#step-d-install-and-restart-push-to-github)
   - [Done\!](#done)
+  - [More to do…](#more-to-do)
+  - [Pkgdown packaging](#pkgdown-packaging)
+  - [CRAN](#cran)
   - [Appendix. list of code chunks in this
     doc.](#appendix-list-of-code-chunks-in-this-doc)
 
@@ -146,7 +150,7 @@ geom_lollipop <- function(...){
 testthat::test_that("multiplication works", {
   testthat::expect_equal(2*2, 4)
 })
-#> Test passed 🌈
+#> Test passed 🎉
 ```
 
 # Part 2. Build out package
@@ -218,9 +222,15 @@ chunk_to_tests_testthat("test1")
   - Step C.4: Create some more relevant tests with `usethis::use_test()`
   - Step C.5: Build and install package using `devtools::build()`
 
-## Step D. Install and restart
+## Step D. Install and restart, push to github
 
 # Done\!
+
+# More to do…
+
+# Pkgdown packaging
+
+# CRAN
 
 # Appendix. list of code chunks in this doc.
 

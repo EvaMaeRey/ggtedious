@@ -183,9 +183,15 @@ chunk_to_tests_testthat("test1")
 - Step C.4: Create some more relevant tests with `usethis::use_test()`
 - Step C.5: Build and install package using `devtools::build()`
 
-## Step D. Install and restart
+## Step D. Install and restart, push to github
 
 # Done! 
+
+# More to do...
+
+# Pkgdown packaging
+
+# CRAN
 
 # Appendix. list of code chunks in this doc.
 
