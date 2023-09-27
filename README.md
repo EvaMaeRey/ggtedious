@@ -21,9 +21,25 @@
     files](#part-2-build-out-package-file-structure-files)
       - [Step A. devtools::create and
         documentation](#step-a-devtoolscreate-and-documentation)
+          - [Step A.0: Create a readme file with
+            usethis::use\_readme\_rmd()](#step-a0-create-a-readme-file-with-usethisuse_readme_rmd)
+          - [Step A.1: Create package architecture using
+            `usethis::create("../ggtedious")`](#step-a1-create-package-architecture-using-usethiscreateggtedious)
+          - [Step A.2: Describe what the package does in the DESCRIPTION
+            file](#step-a2-describe-what-the-package-does-in-the-description-file)
+          - [Step A.3: Create a license using
+            usethis::use\_\*\_license()](#step-a3-create-a-license-using-usethisuse__license)
+          - [Step A.6: Be explicit about dependency use in functions
+            using double colon `package::function()`
+            syntax](#step-a6-be-explicit-about-dependency-use-in-functions-using-double-colon-packagefunction-syntax)
+          - [Step A.6a. Declare dependencies using
+            usethis::use\_package(“package\_name”).](#step-a6a-declare-dependencies-using-usethisuse_packagepackage_name)
+          - [Step A.7: Document functions using ‘Roxygen’ skeleton Code
+            -\> Insert Roxygen
+            skeleton](#step-a7-document-functions-using-roxygen-skeleton-code---insert-roxygen-skeleton)
       - [Step B. Send code to .R folder and test\_that folder, we’ll use
         {readme2pkg}.](#step-b-send-code-to-r-folder-and-test_that-folder-well-use-readme2pkg)
-      - [Step C. devtools::check](#step-c-devtoolscheck)
+      - [Step C. `devtools::check()`](#step-c-devtoolscheck)
       - [Step D. Install and restart](#step-d-install-and-restart)
   - [Done\!](#done)
   - [Appendix. list of code chunks in this
@@ -129,7 +145,7 @@ geom_lollipop <- function(...){
 testthat::test_that("multiplication works", {
   testthat::expect_equal(2*2, 4)
 })
-#> Test passed 😸
+#> Test passed 🥳
 ```
 
 # Part 2. Build out package file structure, files
@@ -138,16 +154,31 @@ testthat::test_that("multiplication works", {
 
 <https://evamaerey.github.io/package_in_20_minutes/package_in_20_minutes>
 
-  - Step A.0: Already complete for workshop purposes: Create a readme
-    file with usethis::use\_readme\_rmd()
-  - Step A.1: Create package architecture using
-    usethis::create\_package(“../ggtedious”)
-  - Step A.2: Describe what the package does in the DESCRIPTION file
-  - Step A.3: Create a license using usethis::use\_\*\_license()
-  - Step A.6: Be explicit about dependency use in functions
-  - Step A.6a. Declare dependencies using
-    usethis::use\_package(“package\_name”); are added to DESCRIPTION
-  - Step A.7: Document functions using ‘Roxygen’ skeleton
+### Step A.0: Create a readme file with usethis::use\_readme\_rmd()
+
+[edit
+README.Rmd](https://github.com/EvaMaeRey/ggtedious/blob/master/README.Rmd)
+
+### Step A.1: Create package architecture using `usethis::create("../ggtedious")`
+
+### Step A.2: Describe what the package does in the DESCRIPTION file
+
+[edit DESCRIPTION
+file](https://github.com/EvaMaeRey/ggtedious/blob/master/DESCRIPTION)
+
+### Step A.3: Create a license using usethis::use\_\*\_license()
+
+[edit LICENSE.md
+file](https://github.com/EvaMaeRey/ggtedious/blob/master/LICENSE.md)
+
+### Step A.6: Be explicit about dependency use in functions using double colon `package::function()` syntax
+
+### Step A.6a. Declare dependencies using usethis::use\_package(“package\_name”).
+
+[edit DESCRIPTION
+file](https://github.com/EvaMaeRey/ggtedious/blob/master/DESCRIPTION)
+
+### Step A.7: Document functions using ‘Roxygen’ skeleton Code -\> Insert Roxygen skeleton
 
 ## Step B. Send code to .R folder and test\_that folder, we’ll use {readme2pkg}.
 
@@ -162,15 +193,15 @@ chunk_to_r(c("geom_post", "geom_lollipop"))
 chunk_to_tests_testthat("test1")
 ```
 
-## Step C. devtools::check
+## Step C. `devtools::check()`
 
   - Step C.1: Make the package “active” and test your functions
-    interactively with devtools::load\_all()
+    interactively with `devtools::load_all()`
   - Step C.2: Incorporate documentation additions into package using
-    devtools::document()
-  - Step C.3: Run a check on the new package using devtools::check()
-  - Step C.4: Create some relevant tests with usethis::use\_test()
-  - Step C.5: Build and install package using devtools::build()
+    `devtools::document()`
+  - Step C.3: Run a check on the new package using `devtools::check()`
+  - Step C.4: Create some relevant tests with `usethis::use_test()`
+  - Step C.5: Build and install package using `devtools::build()`
 
 ## Step D. Install and restart
 

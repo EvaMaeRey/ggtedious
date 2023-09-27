@@ -28,9 +28,9 @@ But the promise of testing is peace of mind; the promise is contentment not exci
 
 Even when framed this way, testing and messaging still might not sound like much fun.  So, to get going in this space, we propose the {ggtedious} workshop to tie our hands --- committing to diving into this space of best practices among good company!  
 
-After participating in ggtedious, participants will be accompanied by memories made at the ggtedious workshop when writing tests for their future projects. Given that, we'll try to make it a 'buzzy' good time!
+After participating in ggtedious, participants will be accompanied by memories made at the ggtedious workshop when writing tests for their future projects. Given that, we'll try to make it a buzzy, fun time!
 
-The workshop will have in-person and remote contingents.  $150 is requested for a professional Zoom account purchase, which will allow the meeting to be recorded and span uninturrupted.
+The workshop will have in-person and remote contingents.  $150 is requested for a professional Zoom account purchase, which will allow the meeting to be recorded and span uninterrupted.
 
 The remaining $XXX honorarium funds will divided between 2 consultants.  The first will guide the package building itself (tentatively Andrew Heiss), with great experience communicating code and methods and bringing energy and warmth to virtual formats (https://www.youtube.com/@AndrewHeiss/videos).  The other will lend their expertise in the business of making the package safe for users beyond the package author (testing, messaging, etc.); (Andy Teucher? - who's will  excitement for best practices promises to be contagious)?.  https://fosstodon.org/@andyteucher/111088512065072782
 
@@ -45,7 +45,7 @@ We are working on scheduling the project for late-October or early November.
 
 # A description of who will benefit from the project
 
-Attendees will benefit from the project.  To keep the workshop intimate, we'll limit attendees to ?? or fewer online participants.  In person locations (unlimited attendees) will be at the University of Denver, US Military Academy at West Point Department of Mathematics, and elsewhere (possibly Yale Data Science and the University of Georgia). 
+Attendees will benefit from the project.  To keep the workshop intimate, we'll limit attendees to ?? or fewer online participants.  In person locations will accommodate unlimited attendees and will be at the University of Denver (Ritchee School), US Military Academy at West Point Department of Mathematics, and elsewhere (possibly Yale Data Science and the University of Georgia). 
 
 Furthermore, ggtedious will live on in a github Repo and posted video as a reference for other new-to-ggplot2 extension folks for reference. 
 
