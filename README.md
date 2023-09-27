@@ -17,14 +17,14 @@
         tests)](#step-4-test-it-out-enjoy-possibly-basis-of-examples-and-tests)
       - [Step 5. Formalize tests, write
         messages.](#step-5-formalize-tests-write-messages)
-  - [Part 2. Build out package file structure,
-    files](#part-2-build-out-package-file-structure-files)
+  - [Part 2. Build out package](#part-2-build-out-package)
       - [Step A. devtools::create and
         documentation](#step-a-devtoolscreate-and-documentation)
           - [Step A.0: Create a readme file with
             usethis::use\_readme\_rmd()](#step-a0-create-a-readme-file-with-usethisuse_readme_rmd)
           - [Step A.1: Create package architecture using
-            `usethis::create("../ggtedious")`](#step-a1-create-package-architecture-using-usethiscreateggtedious)
+            `usethis::create("../ggtedious")`, restart
+            RStudio](#step-a1-create-package-architecture-using-usethiscreateggtedious-restart-rstudio)
           - [Step A.2: Describe what the package does in the DESCRIPTION
             file](#step-a2-describe-what-the-package-does-in-the-description-file)
           - [Step A.3: Create a license using
@@ -39,7 +39,8 @@
             skeleton](#step-a7-document-functions-using-roxygen-skeleton-code---insert-roxygen-skeleton)
       - [Step B. Send code to .R folder and test\_that folder, we’ll use
         {readme2pkg}.](#step-b-send-code-to-r-folder-and-test_that-folder-well-use-readme2pkg)
-      - [Step C. `devtools::check()`](#step-c-devtoolscheck)
+      - [Step C. Load, document, and
+        check](#step-c-load-document-and-check)
       - [Step D. Install and restart](#step-d-install-and-restart)
   - [Done\!](#done)
   - [Appendix. list of code chunks in this
@@ -145,10 +146,10 @@ geom_lollipop <- function(...){
 testthat::test_that("multiplication works", {
   testthat::expect_equal(2*2, 4)
 })
-#> Test passed 🥳
+#> Test passed 🌈
 ```
 
-# Part 2. Build out package file structure, files
+# Part 2. Build out package
 
 ## Step A. devtools::create and documentation
 
@@ -159,7 +160,21 @@ testthat::test_that("multiplication works", {
 [edit
 README.Rmd](https://github.com/EvaMaeRey/ggtedious/blob/master/README.Rmd)
 
-### Step A.1: Create package architecture using `usethis::create("../ggtedious")`
+### Step A.1: Create package architecture using `usethis::create("../ggtedious")`, restart RStudio
+
+``` r
+fs::dir_tree()
+#> .
+#> ├── README.Rmd
+#> ├── README.md
+#> ├── README_files
+#> │   └── figure-gfm
+#> │       └── use_base_ggplot2-1.png
+#> ├── RUGS
+#> │   ├── rugs.Rmd
+#> │   └── rugs.pdf
+#> └── ggtedious.Rproj
+```
 
 ### Step A.2: Describe what the package does in the DESCRIPTION file
 
@@ -193,14 +208,14 @@ chunk_to_r(c("geom_post", "geom_lollipop"))
 chunk_to_tests_testthat("test1")
 ```
 
-## Step C. `devtools::check()`
+## Step C. Load, document, and check
 
   - Step C.1: Make the package “active” and test your functions
     interactively with `devtools::load_all()`
   - Step C.2: Incorporate documentation additions into package using
     `devtools::document()`
   - Step C.3: Run a check on the new package using `devtools::check()`
-  - Step C.4: Create some relevant tests with `usethis::use_test()`
+  - Step C.4: Create some more relevant tests with `usethis::use_test()`
   - Step C.5: Build and install package using `devtools::build()`
 
 ## Step D. Install and restart
@@ -214,5 +229,6 @@ knitr::knit_code$get() |> names()
 #>  [1] "unnamed-chunk-1"        "use_base_ggplot2"       "unnamed-chunk-2"       
 #>  [4] "compute_group_post"     "try_compute_group_post" "ggproto"               
 #>  [7] "geom_post"              "geom_lollipop"          "unnamed-chunk-3"       
-#> [10] "test_multiplication"    "unnamed-chunk-4"        "unnamed-chunk-5"
+#> [10] "test_multiplication"    "unnamed-chunk-4"        "unnamed-chunk-5"       
+#> [13] "unnamed-chunk-6"
 ```
