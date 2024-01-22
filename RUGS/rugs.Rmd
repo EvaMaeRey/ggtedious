@@ -5,76 +5,132 @@ date: "9/12/2023"
 output: pdf_document
 ---
 
+<!-- \hypersetup{colorlinks,urlcolor=blue} -->
+<!-- \usepackage{xcolor} -->
+<!-- \usepackage[normalem]{ulem} -->
+<!-- \useunder{\uline}{\ulined}{}% -->
+<!-- \DeclareUrlCommand{\bulurl}{\def\UrlFont{\ttfamily\color{blue}\ulined}} -->
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
 Dear RUGS committee members,
 
-The following is a proposal for $??? for a RUGS sponsored workshop: 'ggtedious'.  The objective is to work on package building skills including the tedious tasks of writing tests and user facing messages (warnings and error) specific to ggplot2 extension packages.  Workshop participants will gain experience with these skills, and *video* will be posted so that a wider audience can benefit.  The 'ggtedious' github repo that we build is also indented to will provide future point of reference for participants. 
-
-To our knowledge, no such resource workshop resource (repo and workshop recording) exists with a ggplot2 extension focus.
-
-Specifically, at the workshop we will create two ggplot2 extension functions, geom_post() and geom_lollipop().  Then we will package these, using modern tooling and applying best practices. 
-
+The following is a proposal for $`r 150 + 250*3` for a RUGS sponsored workshop: 'ggtedious', https://github.com/EvaMaeRey/ggtedious.  The objective is to work on package building skills, especially the 'tedious' tasks of writing tests and user-facing messages (warnings and error).  The functions to be packaged are toy ggplot2 extensions, and so the tests and messages will be tailored to that case. See the appendix for details on those functions.  Workshop participants will gain experience with these skills, and a *video* recording will be posted so that a wider audience can benefit.  The 'ggtedious' github repo that we will add to during the workshop is intended to serve as a future reference point for participants and the video audience.  It will house a fully-working, ggplot2 extension package that embraces best practices. To our knowledge, there are no workshop resources that focus specifically packaging ggplot2 extensions. 
 
 # The nature of the project and its goals
 
-New developers may not be motivated to test and write error messages because the rewards aren't as tangible as writing functionality. "Look my test didn't fail" feels magnitudes less exciting that "look at this awesome thing my function accomplishes in one line of code - OMG".  
+New developers may not be motivated to test and write error and warning messages because the rewards aren't as tangible as writing functionality. "Look my test didn't fail" feels magnitudes less exciting that "look at this awesome thing my function accomplishes --- in one line of code!".  
 
-But the promise of testing is peace of mind; the promise is contentment not excitement.  
+But the promise of testing is peace of mind; the promise is contentment and confidence not being powerful.  This is acknowledged nicely by the testthat introduction:  
 
-> 'Testing your code can be painful and tedious, but it greatly increases the quality of your code.'  - testthat introduction (probably Hadley Wickham)
+> 'Testing your code can be painful and tedious, but it greatly increases the quality of your code.'  - {testthat} introduction
 
-Even when framed this way, testing and messaging still might not sound like much fun.  So, to get going in this space, we propose the {ggtedious} workshop to tie our hands --- committing to diving into this space of best practices among good company!  
-
-After participating in ggtedious, participants will be accompanied by memories made at the ggtedious workshop when writing tests for their future projects. Given that, we'll try to make it a buzzy, fun time!
+So, testing and messaging might not sound like much fun.  To get going in this space, we invite people to tie their hands and sign up for the  {ggtedious} workshop --- committing to diving into this space of best practices!  We'll try to make it as fun and memorable as possible:  A goal of the workshop is that, when applying best practices in their future projects, ggtedious participants will be accompanied by warm-and-fuzzy memories from ggtedious workshop!  
 
 The workshop will have in-person and remote contingents.  $150 is requested for a professional Zoom account purchase, which will allow the meeting to be recorded and span uninterrupted.
 
-The remaining $XXX honorarium funds will divided between 2 consultants.  The first will guide the package building itself (tentatively Andrew Heiss), with great experience communicating code and methods and bringing energy and warmth to virtual formats (https://www.youtube.com/@AndrewHeiss/videos).  The other will lend their expertise in the business of making the package safe for users beyond the package author (testing, messaging, etc.); (Andy Teucher? - who's will  excitement for best practices promises to be contagious)?.  https://fosstodon.org/@andyteucher/111088512065072782
+The remaining $750 honorarium funds will divided among 2 or 3 consultants.  The first consultant will guide the package building itself --- tentatively Andrew Heiss.  Dr. Heiss has great experience communicating code and methods and bringing energy and warmth to \href{https://www.youtube.com/@AndrewHeiss/videos}{virtual formats}.  The other consultant(s), to be finalized, will lend their expertise in the business of making the package safe for users beyond the package author (testing, messaging, etc.).  In-person hosting venues will be donated.
 
-{ggtedious} is meant to complement other educational materials on focuses *only* on building ggplot2 extension functionality (https://github.com/EvaMaeRey/easy-geom-recipes) --- and not packaging.
+{ggtedious} is meant to complement other educational materials that focus *only* on building ggplot2 extension functionality (e.g. https://github.com/EvaMaeRey/easy-geom-recipes) --- and not packaging.
 
-The workshop will use specialized tools from *readme2pkg* so that the workshop lessons learned can be captured in a single narrative README.rmd, but also live in a viable package.
+<!-- The workshop repo readme will also 'quote back' .R functions and tests so that the workshop lessons learned can be captured in a single narrative README.rmd, but also live in a viable package.  See this an example of this technique: https://github.com/EvaMaeRey/tidytitanic and https://github.com/EvaMaeRey/tidytitanic/blob/0dc3ce18b63842587243b191fcf23b978ce56c61/README.Rmd#L94 -->
 
 
 # The beginning and end dates for the project
 
-We are working on scheduling the project for late-October or early November.
+We are working on scheduling the workshop for early 2024, accommodating the schedules of our team and in-person-location sponsors.
 
 # A description of who will benefit from the project
 
-Attendees will benefit from the project.  To keep the workshop intimate, we'll limit attendees to ?? or fewer online participants.  In person locations will accommodate unlimited attendees and will be at the University of Denver (Ritchee School), US Military Academy at West Point Department of Mathematics, and elsewhere (possibly Yale Data Science and the University of Georgia). 
+Attendees will benefit from the project.  To keep the workshop intimate and allow for brief introductions, we'll limit attendees to 20 or fewer online participants.  In person locations will accommodate attendees according to the physical limits of the venues and will include the University of Denver (Ritchie School of Engineering and Computer Science).
 
-Furthermore, ggtedious will live on in a github Repo and posted video as a reference for other new-to-ggplot2 extension folks for reference. 
+Furthermore, ggtedious workshop video will be posted about a month after the meeting and the  a github repository will be maintained as reference for other new-to-ggplot2 extension folks for reference. 
 
 # A list of detailed activities along with relevant timelines
 
 Pre Workshop
 
-1. Secure technical participation and financial support from RUGS 1.5 months before meeting
-2. Schedule meeting, coordinating with in person hosts and technical experts, and in-person locations
-3. Announce at gathering for in-person locations & Announce opportunity for virtual participation and launch application form to participate
-5. Select virtual participants (if pool is too large)
+0. Apply for RUGS funding January, 2024.
+1. Secure technical participation, Feb, 2024.
+2. Schedule meeting (early March 2024), coordinating with in person hosts and technical experts, and in-person locations.
+3. 1 months prior to meeting. Announce at gathering for in-person locations & announce. opportunity for virtual participation and launch application form to participate.
+5. 3 weeks prior select virtual participants (if pool is too large), and notify virtual participants.
+7. Week prior to workshop, send reminders to workshop participants and experts.
+
 
 Workshop
 
-1. Work on functionality
-2. Build out package file structure, files
+1. Introductions (10 minutes) and functionality (30 minutes)
+2. Build out package file structure, files (1.25 hours)
+detail https://evamaerey.github.io/ggtedious/
 
 Post Workshop: 
 
-Zoom video processing and Posting. ~ 1 month after meeting
-
+1. Post-workshop survey collecting feedback
+2. Zoom video posting on YouTube ~ 1 month after meeting
 
 # Your measure of success for the project
 
-The test coverage and usability of this toy package will be the measure of success.  Creating a reference for future package builders and the workshop participants is the key an objective. 
+Provide positive and informative first-experiences in package writing, testing, and error/warning message writing is the primary goal of the workshop, evaluated with a brief, voluntary post-workshop survey. 
 
 # A detailed financial plan and list of expenses
 
-$XXX total
+$1050 total
 
-- 1X professional Zoom membership, $150
-- 2X \$XXX honorariums, $XXX 
+- $150 1X professional Zoom membership, 
+- $750 divided among 2 or 3 consultants
+- Donated: In person meeting space at the University of Denver
+
+# Appendix: toy project proposed functions for the ggtedious workshop
+
+To motivate our project we can think about data viz for a discrete probability problem.  For a prize spin wheel, we'd like to calculate the 'expected value' for a single spin of the wheel.  As a pre-step, we'd like to visualize the distribution of outcomes.  Some work on this has already been done in the exploratory package [{ma206distributions}] found here: https://evamaerey.github.io/ma206distributions/.
+
+```{r spinwheel, warning = F, message=F, echo = F, out.width="20%", fig.align='center'}
+library(tidyverse)
+set.seed(1243323)
+ma206distributions::prize_wheel %>% 
+  uncount(frequency) %>% 
+  slice_sample(n = 12) %>% 
+  mutate(position = row_number()) %>% 
+  ggplot() + 
+  aes(x = position, y = .5, fill = payout) + 
+  geom_tile(alpha = .85, color = "white") + 
+  geom_text(aes(label = payout %>% paste0("$", .)), 
+            color = "white", 
+            y = .85,
+            size = 6) + 
+  coord_polar() +
+  scale_fill_viridis_c(end = .8) +
+  theme_void() + 
+  theme(legend.position = "none") 
+```
+
+## Status quo code and output
+
+```{r, out.width="33%", fig.show='hold'}
+prize_wheel <- data.frame(sector_type = c("No Prize", "Win $1", "Win $3"),
+                                          frequency = c(9, 1, 2), 
+                                          payout = c(0, 1, 3))
+
+library(ggplot2)
+ggplot(prize_wheel,
+       aes(x = payout, y = frequency, xend = payout, yend = 0) ) + 
+  geom_segment()
+
+last_plot() + 
+  geom_point()
+```
+
+## Proposed code that package should enable
+
+```{r, eval = F}
+library(ggplot2)
+ggplot(prize_wheel, aes(x = payout, y = frequency) + 
+  geom_post()
+  
+ggplot(prize_wheel,aes(x = payout, y = frequency) + 
+  geom_lollipop()
+```
+
