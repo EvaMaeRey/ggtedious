@@ -15,40 +15,53 @@
         mechanism](#step-31-bonus-write-geom_lollipop-with-list-mechanism)
       - [Step 4. Test it out enjoy\! (possibly basis of examples and
         tests)](#step-4-test-it-out-enjoy-possibly-basis-of-examples-and-tests)
-      - [Step 5. Formalize tests, write
-        messages.](#step-5-formalize-tests-write-messages)
-  - [Part 2. Build out package](#part-2-build-out-package)
-      - [Step A. devtools::create and
-        documentation](#step-a-devtoolscreate-and-documentation)
-          - [Step A.0: Create a readme file with
-            usethis::use\_readme\_rmd()](#step-a0-create-a-readme-file-with-usethisuse_readme_rmd)
-          - [Step A.1: Create package architecture using
-            `usethis::create("../ggtedious")`, restart
-            RStudio](#step-a1-create-package-architecture-using-usethiscreateggtedious-restart-rstudio)
-          - [Step A.2: Describe what the package does in the DESCRIPTION
-            file](#step-a2-describe-what-the-package-does-in-the-description-file)
-          - [Step A.3: Create a license using
-            usethis::use\_\*\_license()](#step-a3-create-a-license-using-usethisuse__license)
-          - [Step A.6: Be explicit about dependency use in functions
-            using double colon `package::function()`
-            syntax](#step-a6-be-explicit-about-dependency-use-in-functions-using-double-colon-packagefunction-syntax)
-          - [Step A.6a. Declare dependencies using
-            usethis::use\_package(“package\_name”).](#step-a6a-declare-dependencies-using-usethisuse_packagepackage_name)
-          - [Step A.7: Document functions using ‘Roxygen’ skeleton Code
-            -\> Insert Roxygen
-            skeleton](#step-a7-document-functions-using-roxygen-skeleton-code---insert-roxygen-skeleton)
-      - [Step B. Send code to .R folder and test\_that folder, we’ll use
-        {readme2pkg}.](#step-b-send-code-to-r-folder-and-test_that-folder-well-use-readme2pkg)
-      - [Step C. Load, document, and
-        check](#step-c-load-document-and-check)
-      - [Step D. Install and restart, push to
-        github](#step-d-install-and-restart-push-to-github)
-  - [Done\!](#done)
-  - [More to do…](#more-to-do)
-  - [Pkgdown packaging](#pkgdown-packaging)
-  - [CRAN](#cran)
-  - [Appendix. list of code chunks in this
-    doc.](#appendix-list-of-code-chunks-in-this-doc)
+      - [Step 5. Write messages/warnings etc in the
+        function](#step-5-write-messageswarnings-etc-in-the-function)
+  - [Part II. Packaging and documentation
+    🚧](#part-ii-packaging-and-documentation-)
+      - [Phase 1. Minimal working
+        package](#phase-1-minimal-working-package)
+          - [Bit A. Created package archetecture, running
+            `devtools::create(".")` in interactive session.
+            ✅](#bit-a-created-package-archetecture-running-devtoolscreate-in-interactive-session-)
+          - [Bit B. Added roxygen skeleton?
+            🚧](#bit-b-added-roxygen-skeleton-)
+          - [Bit C. Managed dependencies ?
+            ✅](#bit-c-managed-dependencies--)
+          - [Bit D. Moved functions R folder?
+            ✅](#bit-d-moved-functions-r-folder-)
+          - [Bit E. Run `devtools::check()` and addressed errors. 🚧
+            ✅](#bit-e-run-devtoolscheck-and-addressed-errors--)
+          - [Bit F. Build package 🚧 ✅](#bit-f-build-package--)
+          - [Bit G. Write traditional README that uses built package
+            (also serves as a test of build. 🚧
+            ✅](#bit-g-write-traditional-readme-that-uses-built-package-also-serves-as-a-test-of-build--)
+          - [Bit H. Chosen a license? 🚧 ✅](#bit-h-chosen-a-license--)
+          - [Bit I. Add lifecycle badge (experimental) 🚧
+            ✅](#bit-i-add-lifecycle-badge-experimental--)
+      - [Phase 2: Listen & iterate 🚧 ✅](#phase-2-listen--iterate--)
+      - [Phase 3: Let things settle](#phase-3-let-things-settle)
+          - [Bit A. Settle on examples. Put them in the roxygen skeleton
+            and readme. 🚧
+            ✅](#bit-a-settle-on-examples-put-them-in-the-roxygen-skeleton-and-readme--)
+          - [Bit B. Written formal tests of functions and save to test
+            that folders 🚧
+            ✅](#bit-b-written-formal-tests-of-functions-and-save-to-test-that-folders--)
+          - [Bit C. Added a description and author information in the
+            DESCRIPTION file 🚧
+            ✅](#bit-c-added-a-description-and-author-information-in-the-description-file--)
+          - [Bit D. Addressed *all* notes, warnings and errors.
+            🚧](#bit-d-addressed-all-notes-warnings-and-errors-)
+      - [Phase 4. Promote to wider
+        audience…](#phase-4-promote-to-wider-audience)
+          - [Bit A. Package website built?
+            ✅](#bit-a-package-website-built-)
+          - [Bit B. Package website deployed? 🚧
+            ✅](#bit-b-package-website-deployed--)
+      - [Phase 5: Harden/commit](#phase-5-hardencommit)
+          - [Submit to CRAN/RUniverse? 🚧](#submit-to-cranruniverse-)
+  - [Appendix: Reports, Environment](#appendix-reports-environment)
+      - [Edited Description file?](#edited-description-file)
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
@@ -59,16 +72,15 @@
 <!-- badges: end -->
 
 Let’s build a cool ggplot2 extension function. And then let’s put it in
-a package. And let’s do it right\! It may require grit to endure the
-tedium.
+a package. And test\! Maybe it will be tedious, but more fun in good
+company?
 
 > ‘Testing your code can be painful and tedious, but it greatly
 > increases the quality of your code.’ - testthat introduction (probably
 > Hadley Wickham)
 
-Building a simple, straightforward extension in good company
-(workshop\!) will provide a misery-loves-company occasion to build a
-correct package and build/strengthen testing muscles.
+In this workshop, we’ll build and strengthen package building and test
+writing muscles.
 
 <https://angeladuckworth.com/grit-scale/>
 
@@ -77,8 +89,8 @@ Meeting objectives:
 <!-- 0. My pre-step: Figure out what best practices for ggplot2 extension packages and testing are; and/or figure out some experts to ask for help. -->
 
 1.  Practice a `compute_group` easy geom extension by creating
-    geom\_post(); also bonus geom\_lollipop().
-2.  Put them in a package using best practices
+    geom\_post().
+2.  Put them in a package using best practices.
 3.  Meet like-minded stats educators, ggplot2 extenders, and package
     developers.
 
@@ -144,101 +156,134 @@ geom_lollipop <- function(...){
 
 ## Step 4. Test it out enjoy\! (possibly basis of examples and tests)
 
-## Step 5. Formalize tests, write messages.
+## Step 5. Write messages/warnings etc in the function
+
+# Part II. Packaging and documentation 🚧
+
+## Phase 1. Minimal working package
+
+### Bit A. Created package archetecture, running `devtools::create(".")` in interactive session. ✅
 
 ``` r
-testthat::test_that("multiplication works", {
-  testthat::expect_equal(2*2, 4)
+devtools::create(".")
+```
+
+### Bit B. Added roxygen skeleton? 🚧
+
+Use a roxygen skeleton for auto documentation and making sure proposed
+functions are *exported*. Generally, early on, I don’t do much
+(anything) in terms of filling in the skeleton for documentation,
+because things may change.
+
+### Bit C. Managed dependencies ? ✅
+
+Package dependencies managed, i.e. `depend::function()` in proposed
+functions and declared in the DESCRIPTION
+
+``` r
+usethis::use_package("ggplot2")
+```
+
+### Bit D. Moved functions R folder? ✅
+
+Use new {readme2pkg} function to do this from readme…
+
+``` r
+library(tidyverse)
+readme2pkg::chunk_to_r("geom_post")
+```
+
+### Bit E. Run `devtools::check()` and addressed errors. 🚧 ✅
+
+``` r
+devtools::check(pkg = ".")
+```
+
+### Bit F. Build package 🚧 ✅
+
+``` r
+devtools::build()
+```
+
+### Bit G. Write traditional README that uses built package (also serves as a test of build. 🚧 ✅
+
+The goal of the {ggtedious} package is to make it easy to draw posts
+(and to learn about package building and testing)
+
+Install package with:
+
+    remotes::install_github("EvaMaeRey/ggtedious")
+
+Once functions are exported you can remove go to two colons, and when
+things are are really finalized, then go without colons (and rearrange
+your readme…)
+
+``` r
+library(ggtedious)  
+```
+
+### Bit H. Chosen a license? 🚧 ✅
+
+``` r
+usethis::use_mit_license()
+```
+
+### Bit I. Add lifecycle badge (experimental) 🚧 ✅
+
+``` r
+usethis::use_lifecycle_badge("experimental")
+```
+
+## Phase 2: Listen & iterate 🚧 ✅
+
+Try to get feedback from experts on API, implementation, default
+decisions. Is there already work that solves this problem?
+
+## Phase 3: Let things settle
+
+### Bit A. Settle on examples. Put them in the roxygen skeleton and readme. 🚧 ✅
+
+### Bit B. Written formal tests of functions and save to test that folders 🚧 ✅
+
+That would look like this…
+
+``` r
+library(testthat)
+
+test_that("calc times 2 works", {
+  expect_equal(times_two(4), 8)
+  expect_equal(times_two(5), 10)
+  
 })
-#> Test passed 🎉
 ```
 
-# Part 2. Build out package
-
-## Step A. devtools::create and documentation
-
-<https://evamaerey.github.io/package_in_20_minutes/package_in_20_minutes>
-
-### Step A.0: Create a readme file with usethis::use\_readme\_rmd()
-
-[edit
-README.Rmd](https://github.com/EvaMaeRey/ggtedious/blob/master/README.Rmd)
-
-### Step A.1: Create package architecture using `usethis::create("../ggtedious")`, restart RStudio
-
 ``` r
-fs::dir_tree()
-#> .
-#> ├── README.Rmd
-#> ├── README.md
-#> ├── README_files
-#> │   └── figure-gfm
-#> │       └── use_base_ggplot2-1.png
-#> ├── RUGS
-#> │   ├── rugs.Rmd
-#> │   └── rugs.pdf
-#> └── ggtedious.Rproj
+readme2pkg::chunk_to_tests_testthat("test_calc_times_two_works")
 ```
 
-### Step A.2: Describe what the package does in the DESCRIPTION file
+### Bit C. Added a description and author information in the DESCRIPTION file 🚧 ✅
 
-[edit DESCRIPTION
-file](https://github.com/EvaMaeRey/ggtedious/blob/master/DESCRIPTION)
+### Bit D. Addressed *all* notes, warnings and errors. 🚧
 
-### Step A.3: Create a license using usethis::use\_\*\_license()
+## Phase 4. Promote to wider audience…
 
-[edit LICENSE.md
-file](https://github.com/EvaMaeRey/ggtedious/blob/master/LICENSE.md)
-
-### Step A.6: Be explicit about dependency use in functions using double colon `package::function()` syntax
-
-### Step A.6a. Declare dependencies using usethis::use\_package(“package\_name”).
-
-[edit DESCRIPTION
-file](https://github.com/EvaMaeRey/ggtedious/blob/master/DESCRIPTION)
-
-### Step A.7: Document functions using ‘Roxygen’ skeleton Code -\> Insert Roxygen skeleton
-
-## Step B. Send code to .R folder and test\_that folder, we’ll use {readme2pkg}.
-
-Functions send code to proper folders for packaging; but let them live
-here first. Another valid alternative is copy and paste. Other package
-building workflows will build the functionality straight away in .R
-files.
+### Bit A. Package website built? ✅
 
 ``` r
-library(readme2pkg)
-chunk_to_r(c("geom_post", "geom_lollipop"))
-chunk_to_tests_testthat("test1")
+usethis::use_pkgdown()
+pkgdown::build_site()
 ```
 
-## Step C. Load, document, and check
+### Bit B. Package website deployed? 🚧 ✅
 
-  - Step C.1: Make the package “active” and test your functions
-    interactively with `devtools::load_all()`
-  - Step C.2: Incorporate documentation additions into package using
-    `devtools::document()`
-  - Step C.3: Run a check on the new package using `devtools::check()`
-  - Step C.4: Create some more relevant tests with `usethis::use_test()`
-  - Step C.5: Build and install package using `devtools::build()`
+## Phase 5: Harden/commit
 
-## Step D. Install and restart, push to github
+### Submit to CRAN/RUniverse? 🚧
 
-# Done\!
+# Appendix: Reports, Environment
 
-# More to do…
-
-# Pkgdown packaging
-
-# CRAN
-
-# Appendix. list of code chunks in this doc.
+## Edited Description file?
 
 ``` r
-knitr::knit_code$get() |> names()
-#>  [1] "unnamed-chunk-1"        "use_base_ggplot2"       "unnamed-chunk-2"       
-#>  [4] "compute_group_post"     "try_compute_group_post" "ggproto"               
-#>  [7] "geom_post"              "geom_lollipop"          "unnamed-chunk-3"       
-#> [10] "test_multiplication"    "unnamed-chunk-4"        "unnamed-chunk-5"       
-#> [13] "unnamed-chunk-6"
+readLines("DESCRIPTION")
 ```

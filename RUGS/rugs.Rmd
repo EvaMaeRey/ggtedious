@@ -1,7 +1,7 @@
 ---
 title: "RUGS application for 'ggtedious'"
 author: "Evangeline Reynolds"
-date: "9/12/2023"
+date: "04/01/2024"
 output: pdf_document
 ---
 
@@ -46,25 +46,27 @@ We are working on scheduling the workshop for early 2024, accommodating the sche
 
 Attendees will benefit from the project.  To keep the workshop intimate and allow for brief introductions, we'll limit attendees to 20 or fewer online participants.  In person locations will accommodate attendees according to the physical limits of the venues and will include the University of Denver (Ritchie School of Engineering and Computer Science).
 
-Furthermore, ggtedious workshop video will be posted about a month after the meeting and the  a github repository will be maintained as reference for other new-to-ggplot2 extension folks for reference. 
+Furthermore, ggtedious workshop video will be posted about a month after the meeting and the a github repository will be maintained as reference for other new-to-ggplot2 extension folks for reference. 
 
 # A list of detailed activities along with relevant timelines
 
 Pre Workshop
 
-0. Apply for RUGS funding January, 2024.
-1. Secure technical participation, Feb, 2024.
-2. Schedule meeting (early March 2024), coordinating with in person hosts and technical experts, and in-person locations.
-3. 1 months prior to meeting. Announce at gathering for in-person locations & announce. opportunity for virtual participation and launch application form to participate.
-5. 3 weeks prior select virtual participants (if pool is too large), and notify virtual participants.
+0. Apply for RUGS funding March, 2024.
+1. Confirm technical participation, March, 2024.
+2. Schedule meeting, coordinating with in person hosts and technical experts, and in-person locations.
+3. Mid-March 2024 months prior to meeting. Announce at gathering for in-person locations & announce. opportunity for virtual participation and launch application form to participate.
+5. Late-March weeks prior select virtual participants (if pool is too large), and notify virtual participants.
 7. Week prior to workshop, send reminders to workshop participants and experts.
+8. Mid April, run workshop
+9. Mid May, post video and share widely on social media
 
 
 Workshop
 
 1. Introductions (10 minutes) and functionality (30 minutes)
-2. Build out package file structure, files (1.25 hours)
-detail https://evamaerey.github.io/ggtedious/
+2. Build out package file structure, files (1.25 hours), and tests
+ https://evamaerey.github.io/ggtedious/
 
 Post Workshop: 
 

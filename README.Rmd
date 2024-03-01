@@ -18,11 +18,11 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-Let's build a cool ggplot2 extension function.  And then let's put it in a package. And let's do it right!  It may require grit to endure the tedium.
+Let's build a cool ggplot2 extension function.  And then let's put it in a package. And test!  Maybe it will be tedious, but more fun in good company?
 
 > 'Testing your code can be painful and tedious, but it greatly increases the quality of your code.'  - testthat introduction (probably Hadley Wickham)
 
-Building a simple, straightforward extension in good company (workshop!) will provide a misery-loves-company occasion to build a correct package and build/strengthen testing muscles. 
+In this workshop, we'll build and strengthen package building and test writing muscles. 
 
 https://angeladuckworth.com/grit-scale/
 
@@ -30,8 +30,8 @@ Meeting objectives:
 
 <!-- 0. My pre-step: Figure out what best practices for ggplot2 extension packages and testing are; and/or figure out some experts to ask for help. -->
 
-1. Practice a `compute_group` easy geom extension by creating geom_post(); also bonus geom_lollipop().
-2. Put them in a package using best practices
+1. Practice a `compute_group` easy geom extension by creating geom_post().
+2. Put them in a package using best practices.
 3. Meet like-minded stats educators, ggplot2 extenders, and package developers. 
 
 Prerequisite:
@@ -123,78 +123,145 @@ geom_lollipop <- function(...){
 
 ```
 
-## Step 5. Formalize tests, write messages.
+## Step 5. Write messages/warnings etc in the function
 
-```{r test_multiplication}
-testthat::test_that("multiplication works", {
-  testthat::expect_equal(2*2, 4)
+# Part II. Packaging and documentation  🚧
+
+## Phase 1. Minimal working package
+
+### Bit A. Created package archetecture, running `devtools::create(".")` in interactive session. ✅
+
+
+```{r, eval = F}
+devtools::create(".")
+```
+
+### Bit B. Added roxygen skeleton? 🚧 
+
+Use a roxygen skeleton for auto documentation and making sure proposed functions are *exported*.  Generally, early on, I don't do much (anything) in terms of filling in the skeleton for documentation, because things may change.
+
+### Bit C. Managed dependencies ? ✅
+
+Package dependencies managed, i.e. `depend::function()` in proposed functions and declared in the DESCRIPTION
+
+```{r, eval = F}
+usethis::use_package("ggplot2")
+```
+
+
+### Bit D. Moved functions R folder? ✅
+
+Use new {readme2pkg} function to do this from readme...
+
+```{r, eval = F}
+library(tidyverse)
+readme2pkg::chunk_to_r("geom_post")
+```
+
+### Bit E. Run `devtools::check()` and addressed errors. 🚧 ✅
+
+```{r, eval = F}
+devtools::check(pkg = ".")
+```
+
+### Bit F. Build package 🚧 ✅
+
+```{r, eval = F}
+devtools::build()
+```
+
+
+### Bit G. Write traditional README that uses built package (also serves as a test of build. 🚧 ✅
+
+The goal of the {ggtedious} package is to make it easy to draw posts (and to learn about package building and testing)
+
+Install package with:
+
+```
+remotes::install_github("EvaMaeRey/ggtedious")
+```
+
+Once functions are exported you can remove go to two colons, and when things are are really finalized, then go without colons (and rearrange your readme...)
+
+```{r, eval = F}
+library(ggtedious)  
+
+
+
+```
+
+
+
+
+### Bit H. Chosen a license? 🚧 ✅
+
+
+```{r, eval = F}
+usethis::use_mit_license()
+```
+
+### Bit I. Add lifecycle badge (experimental) 🚧 ✅
+
+```{r, eval = F}
+usethis::use_lifecycle_badge("experimental")
+```
+
+
+## Phase 2: Listen & iterate 🚧 ✅
+
+Try to get feedback from experts on API, implementation, default decisions.  Is there already work that solves this problem? 
+
+
+## Phase 3: Let things settle
+
+### Bit A. Settle on examples.  Put them in the roxygen skeleton and readme. 🚧 ✅
+
+### Bit B. Written formal tests of functions and save to test that folders 🚧 ✅
+
+
+That would look like this...
+
+```{r test_calc_times_two_works, eval = F}
+library(testthat)
+
+test_that("calc times 2 works", {
+  expect_equal(times_two(4), 8)
+  expect_equal(times_two(5), 10)
+  
 })
 ```
 
-# Part 2.  Build out package
-
-## Step A. devtools::create and documentation
-
-https://evamaerey.github.io/package_in_20_minutes/package_in_20_minutes
-
-### Step A.0: Create a readme file with usethis::use_readme_rmd()  
-
-[edit README.Rmd](https://github.com/EvaMaeRey/ggtedious/blob/master/README.Rmd) 
-
-### Step A.1: Create package architecture using `usethis::create("../ggtedious")`, restart RStudio
-
-```{r}
-fs::dir_tree()
-
-```
-
-### Step A.2: Describe what the package does in the DESCRIPTION file
-
-[edit DESCRIPTION file](https://github.com/EvaMaeRey/ggtedious/blob/master/DESCRIPTION) 
-
-### Step A.3: Create a license using usethis::use_*_license()   
-
-[edit LICENSE.md file](https://github.com/EvaMaeRey/ggtedious/blob/master/LICENSE.md) 
-
-### Step A.6: Be explicit about dependency use in functions using double colon `package::function()` syntax
-
-### Step A.6a. Declare dependencies using usethis::use_package(“package_name”).
-
-[edit DESCRIPTION file](https://github.com/EvaMaeRey/ggtedious/blob/master/DESCRIPTION) 
-
-### Step A.7: Document functions using ‘Roxygen’ skeleton  Code -> Insert Roxygen skeleton
-
-
-## Step B. Send code to .R folder and test_that folder, we'll use {readme2pkg}.
-
-Functions send code to proper folders for packaging; but let them live here first.  Another valid alternative is copy and paste.  Other package building workflows will build the functionality straight away in .R files.
 
 ```{r, eval = F}
-library(readme2pkg)
-chunk_to_r(c("geom_post", "geom_lollipop"))
-chunk_to_tests_testthat("test1")
+readme2pkg::chunk_to_tests_testthat("test_calc_times_two_works")
 ```
 
-## Step C. Load, document, and check
 
-- Step C.1: Make the package “active” and test your functions interactively with `devtools::load_all()`
-- Step C.2: Incorporate documentation additions into package using `devtools::document()`
-- Step C.3: Run a check on the new package using `devtools::check()`
-- Step C.4: Create some more relevant tests with `usethis::use_test()`
-- Step C.5: Build and install package using `devtools::build()`
+### Bit C. Added a description and author information in the DESCRIPTION file 🚧 ✅
 
-## Step D. Install and restart, push to github
+### Bit D. Addressed *all* notes, warnings and errors. 🚧 
 
-# Done! 
+## Phase 4. Promote to wider audience...
 
-# More to do...
+### Bit A. Package website built?  ✅
 
-# Pkgdown packaging
-
-# CRAN
-
-# Appendix. list of code chunks in this doc.
-
-```{r}
-knitr::knit_code$get() |> names()
+```{r, eval = F}
+usethis::use_pkgdown()
+pkgdown::build_site()
 ```
+
+
+### Bit B. Package website deployed? 🚧 ✅
+
+## Phase 5: Harden/commit
+
+### Submit to CRAN/RUniverse? 🚧 
+
+# Appendix: Reports, Environment
+
+## Edited Description file?
+
+```{r, eval = F}
+readLines("DESCRIPTION")
+```
+
