@@ -82,6 +82,10 @@ company?
 In this workshop, we’ll build and strengthen package building and test
 writing muscles.
 
+<!-- 'Error messages are a huge part of your user interface.  I mean you'd like to think they aren't, but they they are. - https://youtu.be/5LktoXh7WvY?si=bIYS6NLYrGey8o_7&t=2248 -->
+
+<!-- Building a simple, straightforward extension in good company (workshop!) will provide a misery-loves-company occasion to build a correct package and build/strengthen testing muscles.  -->
+
 <https://angeladuckworth.com/grit-scale/>
 
 Meeting objectives:
