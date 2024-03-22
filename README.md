@@ -17,19 +17,19 @@
         tests)](#step-4-test-it-out-enjoy-possibly-basis-of-examples-and-tests)
       - [Step 5. Write messages/warnings etc in the
         function](#step-5-write-messageswarnings-etc-in-the-function)
-  - [Part II. Packaging and documentation
-    🚧](#part-ii-packaging-and-documentation-)
+  - [Part II. Packaging and documentation 🚧
+    ✅](#part-ii-packaging-and-documentation--)
       - [Phase 1. Minimal working
         package](#phase-1-minimal-working-package)
           - [Bit A. Created package archetecture, running
-            `devtools::create(".")` in interactive session.
-            ✅](#bit-a-created-package-archetecture-running-devtoolscreate-in-interactive-session-)
-          - [Bit B. Added roxygen skeleton?
-            🚧](#bit-b-added-roxygen-skeleton-)
-          - [Bit C. Managed dependencies ?
-            ✅](#bit-c-managed-dependencies--)
-          - [Bit D. Moved functions R folder?
-            ✅](#bit-d-moved-functions-r-folder-)
+            `devtools::create(".")` in interactive session. 🚧
+            ✅](#bit-a-created-package-archetecture-running-devtoolscreate-in-interactive-session--)
+          - [Bit B. Added roxygen skeleton? 🚧
+            ✅](#bit-b-added-roxygen-skeleton--)
+          - [Bit C. Managed dependencies ? 🚧
+            ✅](#bit-c-managed-dependencies---)
+          - [Bit D. Moved functions R folder? 🚧
+            ✅](#bit-d-moved-functions-r-folder--)
           - [Bit E. Run `devtools::check()` and addressed errors. 🚧
             ✅](#bit-e-run-devtoolscheck-and-addressed-errors--)
           - [Bit F. Build package 🚧 ✅](#bit-f-build-package--)
@@ -162,24 +162,24 @@ geom_lollipop <- function(...){
 
 ## Step 5. Write messages/warnings etc in the function
 
-# Part II. Packaging and documentation 🚧
+# Part II. Packaging and documentation 🚧 ✅
 
 ## Phase 1. Minimal working package
 
-### Bit A. Created package archetecture, running `devtools::create(".")` in interactive session. ✅
+### Bit A. Created package archetecture, running `devtools::create(".")` in interactive session. 🚧 ✅
 
 ``` r
 devtools::create(".")
 ```
 
-### Bit B. Added roxygen skeleton? 🚧
+### Bit B. Added roxygen skeleton? 🚧 ✅
 
 Use a roxygen skeleton for auto documentation and making sure proposed
 functions are *exported*. Generally, early on, I don’t do much
 (anything) in terms of filling in the skeleton for documentation,
 because things may change.
 
-### Bit C. Managed dependencies ? ✅
+### Bit C. Managed dependencies ? 🚧 ✅
 
 Package dependencies managed, i.e. `depend::function()` in proposed
 functions and declared in the DESCRIPTION
@@ -188,7 +188,7 @@ functions and declared in the DESCRIPTION
 usethis::use_package("ggplot2")
 ```
 
-### Bit D. Moved functions R folder? ✅
+### Bit D. Moved functions R folder? 🚧 ✅
 
 Use new {readme2pkg} function to do this from readme…
 
