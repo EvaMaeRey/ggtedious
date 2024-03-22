@@ -1,7 +1,7 @@
 ---
 title: "RUGS application for 'ggtedious'"
 author: "Evangeline Reynolds"
-date: "04/01/2024"
+date: "04/22/2024"
 output: pdf_document
 ---
 
@@ -33,7 +33,7 @@ The workshop will have in-person and remote contingents.  $150 is requested for 
 
 The remaining $750 honorarium funds will divided among 2 or 3 consultants.  The first consultant will guide the package building itself --- tentatively Andrew Heiss.  Dr. Heiss has great experience communicating code and methods and bringing energy and warmth to \href{https://www.youtube.com/@AndrewHeiss/videos}{virtual formats}.  The other consultant(s), to be finalized, will lend their expertise in the business of making the visualization package safe for users beyond the package author (testing, messaging, etc.).  In-person hosting venues will be donated.
 
-{ggtedious} is meant to complement other educational materials that focus *only* on building ggplot2 extension functionality (e.g. https://github.com/EvaMaeRey/easy-geom-recipes) --- and not packaging.
+{ggtedious} is meant to complement other educational materials that focus only on building ggplot2 extension *functionality* (e.g. https://ggplot2-book.org/extensions.html; https://ggplot2.tidyverse.org/articles/extending-ggplot2.html) and more general packaging tutorials and guidance (e.g. https://github.com/cosimameyer/writing_packages).
 
 <!-- The workshop repo readme will also 'quote back' .R functions and tests so that the workshop lessons learned can be captured in a single narrative README.rmd, but also live in a viable package.  See this an example of this technique: https://github.com/EvaMaeRey/tidytitanic and https://github.com/EvaMaeRey/tidytitanic/blob/0dc3ce18b63842587243b191fcf23b978ce56c61/README.Rmd#L94 -->
 
@@ -53,14 +53,12 @@ Furthermore, ggtedious workshop video will be posted about a month after the mee
 Pre Workshop
 
 0. Apply for RUGS funding March, 2024.
-1. Confirm technical participation, March, 2024.
+1. Confirm technical participation, April, 2024.
 2. Schedule meeting, coordinating with in person hosts and technical experts, and in-person locations.
 3. Mid-March 2024 months prior to meeting. Announce at gathering for in-person locations & announce. Opportunity for virtual participation and launch sign-up form to participate in the workshop.
-5. Late-March weeks prior select virtual participants (if pool is too large), and notify virtual participants.
 7. Week prior to workshop, send reminders to workshop participants and experts.
-8. Late May, run workshop.
-9. Mid June, post video and share widely on social media
-10.  Solicit feedback from participants via a short survey.
+8. Early June, run workshop. Solicit feedback from participants via a short survey.
+9. Late June, post video and share widely.
 
 
 Workshop
@@ -76,7 +74,7 @@ Post Workshop:
 
 # Your measure of success for the project
 
-Provide positive and informative first-experiences in package writing, testing, and error/warning message writing is the primary goal of the workshop.  This will be evaluated with a brief, voluntary post-workshop survey. 
+Provide positive and informative first-experiences in package writing, testing, and error/warning message writing is the primary goal of the workshop.  This will be evaluated with a brief, voluntary post-workshop survey asking about pre- and post-workshop knowledge and the effectiveness of the workshop. 
 
 # A detailed financial plan and list of expenses
 
